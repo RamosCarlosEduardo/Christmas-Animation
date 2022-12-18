@@ -10,6 +10,48 @@ body {
     overflow: hidden;
 }
 
+.buttons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1rem;
+    display: flex;
+    gap: 1rem;
+    font-weight: 400;
+}
+
+button {
+    padding: 5px;
+    position: relative;
+    padding-left: 35px;
+    height: 35px;
+    border-radius: 1rem;
+    width: 90px;
+    cursor: pointer;
+    border: solid 1px #b9acac;
+}
+
+.button-play::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    background: url(button-play.png);  
+}
+
+.button-pause::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    background: url(button-pause.png);  
+}
+
+
 .scene {
     position: relative;
     background-color: #571212;
@@ -19,7 +61,6 @@ body {
 .scene::before {
     position: absolute;
     content: '';
-    /* background-color: #fff9; */
     background: radial-gradient(#FFFD 60%, #000D);
     width: 700px;
     height: 300px;
@@ -30,6 +71,40 @@ body {
 
 }
 
+.santa-claus {
+    position: absolute;
+    top: 2rem;
+    right: -600px;
+    animation: passingSanta infinite 8s linear;
+}
+.santa-claus__img {
+    height: 250px;
+    width: 600px;
+}
+
+.santa-claus::after {
+    content: 'Merry Christmas!';
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-family: arial;
+    font-size: 3rem;
+    width: fit-content;
+    height: 80px;
+    right: 0;
+    top: 0;
+    transform: translate(102%, 120%);
+    border-radius: 2rem;
+    background-color: white;
+    color: red;
+}
+
+@keyframes passingSanta {
+    
+    100% {transform: translateX(calc(-100vw - 1200px))}
+}
 .christmas-tree {
     position: relative;
     left: 50%;
@@ -118,17 +193,16 @@ body {
     z-index: 5;
 }
 
-.content {
+/* .content {
     position: absolute;
-    z-index: -9999999;
     width: 20px;
     height: 20px;
     background-color: #fff;
-}
+} */
 
-.present:hover .content {
-    /* animation: presentOut 2s forwards; */
-}
+/* .present:hover .content {
+    animation: presentOut 2s forwards;
+} */
 
 @keyframes presentOut {
     to {
@@ -143,23 +217,23 @@ body {
     transition: all 1s;
 }
 
-.present:nth-of-type(2) {
+.present:nth-of-type(1) {
     left: 40%;
     top: 55%;
     background: repeating-linear-gradient(to right, #8a1dab 0% 20%, #2b1cb2 20% 22%);
 }
 
-.present:nth-of-type(2) .tampa {
+.present:nth-of-type(1) .tampa {
     background-color: #2b1cb2;
 }
 
-.present:nth-of-type(3) {
+.present:nth-of-type(2) {
     background: repeating-linear-gradient(to right, #1dab70 0% 20%, #afb21c 20% 22%);
     left: 60%;
     top: 60%;
 }
 
-.present:nth-of-type(3) .tampa {
+.present:nth-of-type(2) .tampa {
     background-color: #a50f30;
 }
 

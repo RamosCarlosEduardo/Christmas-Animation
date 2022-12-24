@@ -88,6 +88,7 @@ button {
     position: absolute;
     align-items: center;
     justify-content: center;
+    text-indent: 3rem;
     padding: 10px 20px;
     font-family: arial;
     font-size: 3rem;
@@ -95,8 +96,10 @@ button {
     height: 80px;
     right: 0;
     top: 0;
-    transform: translate(102%, 120%);
     border-radius: 2rem;
+    border-top-left-radius: 60%;
+    border-bottom-left-radius: 60%;
+    transform: translate(102%, 120%);
     background-color: white;
     color: red;
 }
@@ -193,17 +196,6 @@ button {
     z-index: 5;
 }
 
-/* .content {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-} */
-
-/* .present:hover .content {
-    animation: presentOut 2s forwards;
-} */
-
 @keyframes presentOut {
     to {
         transform: translateY(-50px);
@@ -215,6 +207,34 @@ button {
     height:20px;
     transform: translateX(-5px);
     transition: all 1s;
+    box-shadow: 0px 2px 5px;
+}
+
+.tampa::after {
+    position: absolute;
+    content: '';
+    top: -26px;
+    left: 30px;
+    width: 30px;
+    height: 20px;
+    transform: rotateZ(10deg);
+    border: solid 5px goldenrod;
+    border-radius: 79% 21% 100% 0% / 100% 20% 80% 0%;
+}
+.tampa::before {
+    position: absolute;
+    content: '';
+    top: -26px;
+    left: -10px;
+    width: 30px;
+    height: 20px;
+    transform: rotateZ(-10deg) rotateY(180deg);
+    border: solid 5px goldenrod;
+    border-radius: 79% 21% 100% 0% / 100% 20% 80% 0%;
+}
+
+.present:hover .tampa {
+    transform: translateY(-40px) translateX(30px) rotateZ(60deg);
 }
 
 .present:nth-of-type(1) {
@@ -237,9 +257,94 @@ button {
     background-color: #a50f30;
 }
 
-
-
-.present:hover .tampa {
-    transform: translateY(-40px) translateX(30px) rotateZ(60deg);
+.present:nth-of-type(3) .tampa {
+    background-color: #70a50f;
 }
 
+.present:nth-of-type(3) {
+    background: repeating-linear-gradient(to right, #721dab 0% 20%, #afb21c 20% 22%);
+    left: 50%;
+    top: 65%;
+}
+
+.present:nth-of-type(4) .tampa {
+    background-color: #0fa56b;
+}
+
+.present:nth-of-type(4) {
+    background: repeating-linear-gradient(to right, #511e74 0% 20%, #afb21c 20% 22%);
+    left: 35%;
+    top: 45%;
+}
+
+
+.active {
+    border: solid 1px green;
+    background-color: tomato;
+    font-weight: 500;
+}
+
+.snowman {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 55%;
+    top: 35%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.snowman__body {
+    width: 120px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 10px 15px 30px 0px #0008;
+}
+.snowman__head {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+    border-bottom: solid 1px #0005;
+}
+
+.snowman__head::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 95px;
+    background: url('gorro.png');
+    top: -30px;
+    left: -30px;
+}
+
+.snowman__face {
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    top: 60px;
+    left: 20px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 55px solid orange;
+    transform: rotateZ(80deg);
+}
+
+.snowman__face::before {
+    rotate: 10deg;
+    content: 'Θ';
+    position: absolute;
+    top: 10px;
+    left: -70px;
+}
+
+.snowman__face::after {
+    rotate: -5deg;
+    content: 'Θ';
+    position: absolute;
+    top: -25px;
+    left: -70px;
+}
